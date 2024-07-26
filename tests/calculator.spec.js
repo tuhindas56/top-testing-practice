@@ -8,8 +8,8 @@ describe("Calculator tests", () => {
   }
 
   describe("Addition tests", () => {
-    test("Input validation", () => inputValidation(calculator.add.bind(calculator)))
-    test("Basic cases", () => {
+    test("Input validation throws errors for invalid inputs", () => inputValidation(calculator.add.bind(calculator)))
+    test("Returns correct result for basic addition cases", () => {
       expect(calculator.add(2, 0)).toBe(2)
       expect(calculator.add(2, 3)).toBe(5)
       expect(calculator.add(-2, -3)).toBe(-5)
@@ -18,8 +18,9 @@ describe("Calculator tests", () => {
   })
 
   describe("Subtraction tests", () => {
-    test("Input validation", () => inputValidation(calculator.subtract.bind(calculator)))
-    test("Basic cases", () => {
+    test("Input validation throws errors for invalid inputs", () =>
+      inputValidation(calculator.subtract.bind(calculator)))
+    test("Returns correct result for basic subtraction cases", () => {
       expect(calculator.subtract(2, 0)).toBe(2)
       expect(calculator.subtract(2, 3)).toBe(-1)
       expect(calculator.subtract(-2, -3)).toBe(1)
@@ -28,8 +29,9 @@ describe("Calculator tests", () => {
   })
 
   describe("Multiplication tests", () => {
-    test("Input validation", () => inputValidation(calculator.multiply.bind(calculator)))
-    test("Basic cases", () => {
+    test("Input validation throws errors for invalid inputs", () =>
+      inputValidation(calculator.multiply.bind(calculator)))
+    test("Returns correct result for basic multiplication cases", () => {
       expect(calculator.multiply(2, 0)).toBe(0)
       expect(calculator.multiply(2, 3)).toBe(6)
       expect(calculator.multiply(-2, -3)).toBe(6)
@@ -38,13 +40,16 @@ describe("Calculator tests", () => {
   })
 
   describe("Division tests", () => {
-    test("Input validation", () => inputValidation(calculator.divide.bind(calculator)))
-    test("Basic cases", () => {
-      expect(calculator.divide(2, 0)).toBe(Infinity)
-      expect(calculator.divide(0, 0)).toBe(NaN)
+    test("Input validation throws errors for invalid inputs", () => inputValidation(calculator.divide.bind(calculator)))
+    test("Returns correct result for basic division cases", () => {
       expect(calculator.divide(4, 2)).toBe(2)
       expect(calculator.divide(-4, -2)).toBe(2)
       expect(calculator.divide(-4, 2)).toBe(-2)
+    })
+    test("Handles edge cases correctly", () => {
+      expect(calculator.divide(2, 0)).toBe(Infinity)
+      expect(calculator.divide(0, 0)).toBe(NaN)
+      expect(calculator.divide(2, 7)).toBeCloseTo(0.286, 3)
     })
   })
 })

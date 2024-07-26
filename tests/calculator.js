@@ -20,7 +20,7 @@ const calculator = {
   },
 
   divide(a, b) {
-    return this._inputValidator(a, b) || a / b
+    return this._inputValidator(a, b) || +(a / b).toFixed(3)
   },
 }
 module.exports = calculator
