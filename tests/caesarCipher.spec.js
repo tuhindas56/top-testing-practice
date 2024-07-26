@@ -3,13 +3,15 @@ describe("Caesar cipher tests", () => {
 
   describe("Input validation", () => {
     test("Should throw an error for invalid input string", () => {
-      ;[undefined, null, 23, {}, false, true].forEach((input) =>
+      const invalidInputs = [undefined, null, 23, {}, false, true]
+      invalidInputs.forEach((input) =>
         expect(() => caesarCipher(input, 26)).toThrow(new TypeError("Enter a valid string!"))
       )
     })
 
     test("Should throw an error for an invalid or out of bounds key", () => {
-      ;[undefined, null, 27, -1, "abc", {}, false, true].forEach((key) =>
+      const invalidKeys = [undefined, null, 27, -1, "abc", {}, false, true]
+      invalidKeys.forEach((key) =>
         expect(() => caesarCipher("xyz", key)).toThrow(new RangeError("Key must be an integer in the range of 0 to 26"))
       )
     })
@@ -20,7 +22,8 @@ describe("Caesar cipher tests", () => {
   })
 
   test("Returns original string if key is 0 or 26", () => {
-    ;[0, 26].forEach((key) => expect(caesarCipher("abcd", key)).toBe("abcd"))
+    const boundaryKeys = [0, 26]
+    boundaryKeys.forEach((key) => expect(caesarCipher("abcd", key)).toBe("abcd"))
   })
 
   test("Handles wraparounds", () => {

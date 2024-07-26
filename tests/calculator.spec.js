@@ -1,5 +1,6 @@
 describe("Calculator tests", () => {
   const calculator = require("./calculator")
+
   const inputValidation = (operation) => {
     const invalidInputs = [[2], ["2", "3"], [2, "3"], [null, null], [undefined, undefined]]
     invalidInputs.forEach((input) => {
