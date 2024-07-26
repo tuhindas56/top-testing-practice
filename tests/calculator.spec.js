@@ -7,8 +7,14 @@ describe("Calculator tests", () => {
     })
   }
 
+  describe("Input validation", () => {
+    test("Addition throws errors for invalid inputs", () => inputValidation(calculator.add.bind(calculator)))
+    test("Subtraction throws errors for invalid inputs", () => inputValidation(calculator.subtract.bind(calculator)))
+    test("Multiplication throws errors for invalid inputs", () => inputValidation(calculator.multiply.bind(calculator)))
+    test("Division throws errors for invalid inputs", () => inputValidation(calculator.divide.bind(calculator)))
+  })
+
   describe("Addition tests", () => {
-    test("Input validation throws errors for invalid inputs", () => inputValidation(calculator.add.bind(calculator)))
     test("Returns correct result for basic addition cases", () => {
       expect(calculator.add(2, 0)).toBe(2)
       expect(calculator.add(2, 3)).toBe(5)
@@ -18,8 +24,6 @@ describe("Calculator tests", () => {
   })
 
   describe("Subtraction tests", () => {
-    test("Input validation throws errors for invalid inputs", () =>
-      inputValidation(calculator.subtract.bind(calculator)))
     test("Returns correct result for basic subtraction cases", () => {
       expect(calculator.subtract(2, 0)).toBe(2)
       expect(calculator.subtract(2, 3)).toBe(-1)
@@ -29,8 +33,6 @@ describe("Calculator tests", () => {
   })
 
   describe("Multiplication tests", () => {
-    test("Input validation throws errors for invalid inputs", () =>
-      inputValidation(calculator.multiply.bind(calculator)))
     test("Returns correct result for basic multiplication cases", () => {
       expect(calculator.multiply(2, 0)).toBe(0)
       expect(calculator.multiply(2, 3)).toBe(6)
@@ -40,7 +42,6 @@ describe("Calculator tests", () => {
   })
 
   describe("Division tests", () => {
-    test("Input validation throws errors for invalid inputs", () => inputValidation(calculator.divide.bind(calculator)))
     test("Returns correct result for basic division cases", () => {
       expect(calculator.divide(4, 2)).toBe(2)
       expect(calculator.divide(-4, -2)).toBe(2)
