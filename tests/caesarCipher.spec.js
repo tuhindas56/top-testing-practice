@@ -3,7 +3,7 @@ describe("Caesar cipher tests", () => {
 
   describe("Input validation", () => {
     test("Should throw an error for invalid input string", () => {
-      const invalidInputs = [undefined, null, 23, {}, false, true]
+      const invalidInputs = [undefined, null, "", 23, {}, false, true]
       invalidInputs.forEach((input) =>
         expect(() => caesarCipher(input, 26)).toThrow(new TypeError("Enter a valid string!"))
       )
