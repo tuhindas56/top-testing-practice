@@ -1,6 +1,6 @@
 # top-testing-practice
 
-Functions and their respective tests implemented with <a href="https://jestjs.io/">Jest</a>, as per <a href="https://www.theodinproject.com/lessons/node-path-javascript-testing-practice">this assignment</a> from The Odin Project.
+Functions and their respective tests implemented with [Jest](https://jestjs.io/), as per [this assignment](https://www.theodinproject.com/lessons/node-path-javascript-testing-practice) from The Odin Project.
 
 ## Usage
 
